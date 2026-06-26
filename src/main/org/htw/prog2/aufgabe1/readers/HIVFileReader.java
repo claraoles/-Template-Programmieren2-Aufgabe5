@@ -5,20 +5,15 @@ import org.htw.prog2.aufgabe1.files.HIVFile;
 
 import java.io.IOException;
 
-public interface HIVFileReader {
-    /**
-     * Reads a file and returns an HIVFile representing its contents.
-     * @param filename Filename to read
-     * @return HIVFile instance containing the relevant information from the file.
-     * @throws IOException If the file does not exist or any IO error occurred.
-     * @throws FileFormatException If something is wrong with the file's format.
-     */
-    public HIVFile readFile(String filename) throws IOException, FileFormatException;
+//Basis-Interface für alle Reader, die eine HIV-bezogene Datei einlesen können.
 
-    /**
-     * Check whether this reader can parse the given file.
-     * @param filename Filename of file to be checked.
-     * @return True if this reader can read the given file, false otherwise.
-     */
-    public boolean canReadFile(String filename);
+public interface HIVFileReader {
+
+
+    //Liest die übergebene Datei ein.
+    HIVFile readFile(String filename) throws IOException, FileFormatException;
+
+
+     //Prüft anhand eines ersten "Reinguckens", ob diese Datei von diesem Reader gelesen werden kann.
+    boolean canReadFile(String filename);
 }
